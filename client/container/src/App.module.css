@@ -1,0 +1,11 @@
+.containerLoginWrapper {
+  display: flex;
+  place-content: center;
+  padding-top: 5rem;
+}
+
+.containerRegisterWrapper {
+  display: flex;
+  place-content: center;
+  padding-top: 5rem;
+}

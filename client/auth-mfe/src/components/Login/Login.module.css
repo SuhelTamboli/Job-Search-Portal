@@ -1,0 +1,50 @@
+.authLoginContainer {
+  /* Smooth modern shadow */
+  box-shadow: 8px 8px 12px 12px rgba(0, 0, 0, 0.15);
+  width: 30rem;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.authLoginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.authLoginLabel {
+  font-weight: bold;
+}
+
+.authLoginInput {
+  height: 1.5rem;
+  width: 15rem;
+  border-radius: 0.3rem;
+  border: 1px solid grey;
+  padding-left: 0.5rem;
+}
+
+.authLoginInputRequired {
+  color: red;
+}
+
+.authLoginButton {
+  margin-top: 2rem;
+  padding: 8px;
+  border-radius: 0.3rem;
+  border: 1px solid red;
+  background-color: red;
+  font-weight: bold;
+  font-size: 1rem;
+  color: white;
+}
+
+.authLoginButton:hover {
+  border: 1px solid red;
+  background-color: black;
+  color: red;
+  cursor: pointer;
+}

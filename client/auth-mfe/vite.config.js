@@ -6,16 +6,19 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: "host",
-      remotes: {
-        header: "http://localhost:5001/assets/remoteEntry.js",
-        auth: "http://localhost:5002/assets/remoteEntry.js",
+      name: "auth",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./App": "./src/App.jsx",
+        "./Login": "./src/components/Login/Login.jsx",
+        "./Register": "./src/components/Register/Register.jsx",
       },
       shared: ["react", "react-dom", "react-router-dom"],
     }),
   ],
   server: {
-    port: 5000, // 👈 custom port for job portal container app
+    port: 5002, // 👈 custom port for auth-mfe-app
+    cors: true, // Important for development!
   },
   build: {
     target: "esnext",

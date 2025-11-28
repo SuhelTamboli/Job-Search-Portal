@@ -1,0 +1,58 @@
+.authRegisterContainer {
+  /* Smooth modern shadow */
+  box-shadow: 8px 8px 12px 12px rgba(0, 0, 0, 0.15);
+  width: 30rem;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.authRegisterForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.authRegisterLabel {
+  font-weight: bold;
+}
+
+.authRegisterInput {
+  height: 1.5rem;
+  width: 15rem;
+  border-radius: 0.3rem;
+  border: 1px solid grey;
+  padding-left: 0.5rem;
+}
+
+.authRegisterRoleInput {
+  height: 1.8rem;
+  width: 15.7rem;
+  border-radius: 0.3rem;
+  border: 1px solid grey;
+  padding-left: 0.5rem;
+}
+
+.authRegisterInputRequired {
+  color: red;
+}
+
+.authRegisterButton {
+  margin-top: 2rem;
+  padding: 8px;
+  border-radius: 0.3rem;
+  border: 1px solid red;
+  background-color: red;
+  font-weight: bold;
+  font-size: 1rem;
+  color: white;
+}
+
+.authRegisterButton:hover {
+  border: 1px solid red;
+  background-color: black;
+  color: red;
+  cursor: pointer;
+}
