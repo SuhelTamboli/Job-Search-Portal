@@ -1,0 +1,8 @@
+.headerLogoutPopup {
+  width: 10rem;
+  height: auto;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  font-weight: bold;
+}

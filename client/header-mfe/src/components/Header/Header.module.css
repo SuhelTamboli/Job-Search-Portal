@@ -1,0 +1,71 @@
+.headerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* Smooth modern shadow */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+  padding: 1rem;
+}
+
+.headerTitle {
+  font-size: 1.5rem;
+  color: red;
+  font-weight: bold;
+}
+
+.headerLinksContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.headerLink {
+  font-size: 1rem;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.headerAvatarWrapper {
+  position: relative; /* Important */
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.headerLogoutPopupWrapper {
+  position: absolute;
+  top: 49px; /* pushes popup BELOW avatar */
+  right: -50%; /* aligns to right side of avatar */
+  z-index: 999;
+  /* BOX SHADOW */
+  background: white;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 8px;
+
+  /* Smooth modern shadow */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.headerLogoutPopupWrapper:hover {
+  background-color: rgb(203, 203, 203);
+}
+
+.headerLoginLink {
+  padding: 4px 8px;
+  background-color: red;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 0.4rem;
+  border: 1px solid red;
+  text-decoration: none;
+}
+
+.headerLoginLink:hover {
+  background-color: black;
+  color: red;
+  cursor: pointer;
+}
