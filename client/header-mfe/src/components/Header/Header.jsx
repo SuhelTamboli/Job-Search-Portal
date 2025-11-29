@@ -1,12 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
 import Avatar from "../Avatar/Avatar";
 import LogoutPopup from "../LogOutPopup/LogoutPopup";
 
+// Use window directly
+const EVENT_BUS = window.EVENT_BUS;
+
 const Header = () => {
   const [toggleAvatar, setToggleAvatar] = useState(false);
   const [isSignedIn, setIsSignedIn] = useState(false);
+
+  const loginUser = (event) => {
+    console.log("caught login-success event ", event);
+    setIsSignedIn(true);
+  };
+
+  const logoutUser = () => {
+    setIsSignedIn(false);
+    handleToggle();
+  };
+
+  useEffect(() => {
+    if (!EVENT_BUS) {
+      console.warn("EVENT_BUS not ready yet");
+      // Optional: retry logic
+    }
+    const unsubscribe = EVENT_BUS?.on?.("login-success", loginUser);
+
+    return unsubscribe;
+  }, []);
 
   const handleToggle = () => setToggleAvatar((prev) => !prev);
 
@@ -26,7 +49,7 @@ const Header = () => {
           <Avatar handleToggle={handleToggle} />
           {toggleAvatar && (
             <div className={styles.headerLogoutPopupWrapper}>
-              <LogoutPopup />
+              <LogoutPopup logoutUser={logoutUser} />
             </div>
           )}
         </div>

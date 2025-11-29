@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: "host",
+      name: "container",
       remotes: {
         header: "http://localhost:5001/assets/remoteEntry.js",
         auth: "http://localhost:5002/assets/remoteEntry.js",
@@ -16,6 +16,7 @@ export default defineConfig({
   ],
   server: {
     port: 5000, // 👈 custom port for job portal container app
+    cors: true,
   },
   build: {
     target: "esnext",
