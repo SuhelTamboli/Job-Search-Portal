@@ -13,7 +13,7 @@ export default defineConfig({
         "./Login": "./src/components/Login/Login.jsx",
         "./Register": "./src/components/Register/Register.jsx",
       },
-      shared: ["react", "react-dom", "react-router-dom", "react-toastify"],
+      shared: ["react", "react-dom", "react-router-dom"],
     }),
   ],
   server: {

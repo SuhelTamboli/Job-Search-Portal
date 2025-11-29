@@ -12,7 +12,7 @@ export default defineConfig({
         "./App": "./src/App.jsx",
         "./Header": "./src/components/Header/Header.jsx",
       },
-      shared: ["react", "react-dom", "react-router-dom", "react-toastify"],
+      shared: ["react", "react-dom", "react-router-dom"],
     }),
   ],
   server: {
