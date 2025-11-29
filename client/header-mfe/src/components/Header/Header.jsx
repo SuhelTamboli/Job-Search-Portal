@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
 import Avatar from "../Avatar/Avatar";
-import LogoutPopup from "../LogOutPopup/LogoutPopup";
+import LogoutPopup from "../LogoutPopup/LogoutPopup";
 
 // Use window directly
 const EVENT_BUS = window.EVENT_BUS;
@@ -12,13 +12,14 @@ const Header = () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
 
   const loginUser = (event) => {
-    console.log("caught login-success event ", event);
+    console.log("caught login-success event in header ", event);
     setIsSignedIn(true);
   };
 
   const logoutUser = () => {
     setIsSignedIn(false);
     handleToggle();
+    EVENT_BUS?.emit?.("logout-success", { user: null });
   };
 
   useEffect(() => {

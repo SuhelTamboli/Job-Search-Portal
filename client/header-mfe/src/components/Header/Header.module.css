@@ -69,3 +69,7 @@
   color: red;
   cursor: pointer;
 }
+
+.headerToastWrapper {
+  position: absolute;
+}

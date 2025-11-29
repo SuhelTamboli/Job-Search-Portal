@@ -10,7 +10,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.5.0",
-    "react-router-dom": "^7.9.4"
+    "react-router-dom": "^7.9.4",
+    "react-toastify": "^11.0.5"
   },
   "devDependencies": {
     "@originjs/vite-plugin-federation": "^1.4.1",
