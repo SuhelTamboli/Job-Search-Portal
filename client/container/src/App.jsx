@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 const Header = lazy(() => import("header/Header"));
 const Login = lazy(() => import("auth/Login"));
 const Register = lazy(() => import("auth/Register"));
+const UserProfileCard = lazy(() => import("user-profile/UserProfileCard"));
 
 function App() {
   const loginSuccessNotify = () => toast("Logged In Successfully !");
@@ -72,6 +73,18 @@ function App() {
               >
                 <div className={styles.containerRegisterWrapper}>
                   <Register />
+                </div>
+              </Suspense>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <Suspense
+                fallback={<div>Loading UserProfileCard mfe component...</div>}
+              >
+                <div className={styles.containerLoginWrapper}>
+                  <UserProfileCard />
                 </div>
               </Suspense>
             }

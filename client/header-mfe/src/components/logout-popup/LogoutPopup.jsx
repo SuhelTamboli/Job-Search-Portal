@@ -3,13 +3,13 @@ import styles from "./LogoutPopup.module.css";
 import { IoLogOutOutline } from "react-icons/io5";
 import { MdOutlinePerson } from "react-icons/md";
 
-const LogoutPopup = ({ logoutUser }) => {
+const LogoutPopup = ({ logoutUser, viewProfile }) => {
   return (
-    <div className={styles.headerLogoutPopup} onClick={logoutUser}>
-      <div className={styles.headerLogoutPopupOptions}>
+    <div className={styles.headerLogoutPopup}>
+      <div className={styles.headerLogoutPopupOptions} onClick={viewProfile}>
         <span>View Profile</span> <MdOutlinePerson size={20} />
       </div>
-      <div className={styles.headerLogoutPopupOptions}>
+      <div className={styles.headerLogoutPopupOptions} onClick={logoutUser}>
         <span>Logout</span> <IoLogOutOutline size={20} />
       </div>
     </div>

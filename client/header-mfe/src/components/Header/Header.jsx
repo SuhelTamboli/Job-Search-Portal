@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Avatar from "../avatar/Avatar";
 import LogoutPopup from "../logout-popup/LogoutPopup";
 import NavLinkButton from "shared-ui/NavLinkButton";
+import { useNavigate } from "react-router-dom";
 
 // Use window directly
 const EVENT_BUS = window.EVENT_BUS;
@@ -11,6 +12,14 @@ const EVENT_BUS = window.EVENT_BUS;
 const Header = () => {
   const [toggleAvatar, setToggleAvatar] = useState(false);
   const [isSignedIn, setIsSignedIn] = useState(false);
+  const navigate = useNavigate();
+
+  const handleToggle = () => setToggleAvatar((prev) => !prev);
+
+  const viewProfile = () => {
+    navigate("/profile");
+    handleToggle();
+  };
 
   const loginUser = (event) => {
     console.log("caught login-success event in header ", event);
@@ -26,6 +35,7 @@ const Header = () => {
     setIsSignedIn(false);
     handleToggle();
     EVENT_BUS?.emit?.("logout-success", { user: null });
+    navigate("/");
   };
 
   useEffect(() => {
@@ -45,9 +55,6 @@ const Header = () => {
       unsubscribeRegisterSuccess?.();
     };
   }, []);
-
-  const handleToggle = () => setToggleAvatar((prev) => !prev);
-
   const renderSignedInSection = () => {
     return (
       <div className={styles.headerLinksContainer}>
@@ -64,7 +71,7 @@ const Header = () => {
           <Avatar handleToggle={handleToggle} />
           {toggleAvatar && (
             <div className={styles.headerLogoutPopupWrapper}>
-              <LogoutPopup logoutUser={logoutUser} />
+              <LogoutPopup logoutUser={logoutUser} viewProfile={viewProfile} />
             </div>
           )}
         </div>

@@ -1,0 +1,43 @@
+.userProfileCardContainer {
+  /* Smooth modern shadow */
+  position: relative;
+  box-shadow: 8px 8px 12px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  width: 20rem;
+  height: auto;
+  padding: 1rem;
+  align-items: center;
+}
+
+.userProfileCardEditIcon {
+  position: absolute;
+  top: 7px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.userProfileCardFieldsWrapper {
+  display: grid;
+  grid-template-columns: 90px 1fr; /* left fixed, right flexible */
+  row-gap: 0.5rem;
+  column-gap: 0.5rem;
+}
+
+.userProfileCardFieldLable {
+  font-weight: bold;
+}
+
+.userProfileCardFieldInput {
+  height: 1.5rem;
+  width: 10rem;
+  border-radius: 0.3rem;
+  border: 1px solid grey;
+  padding-left: 0.5rem;
+}
+
+.userProfileCardSaveButtonWrapper {
+    width: 5rem;
+    margin-top: 1rem;
+}
