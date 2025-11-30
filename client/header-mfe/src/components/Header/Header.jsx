@@ -16,6 +16,11 @@ const Header = () => {
     setIsSignedIn(true);
   };
 
+  const registerUser = (event) => {
+    console.log("caught register-success event in header ", event);
+    setIsSignedIn(true);
+  };
+
   const logoutUser = () => {
     setIsSignedIn(false);
     handleToggle();
@@ -27,9 +32,17 @@ const Header = () => {
       console.warn("EVENT_BUS not ready yet");
       // Optional: retry logic
     }
-    const unsubscribe = EVENT_BUS?.on?.("login-success", loginUser);
+    const unsubscribeLoginSuccess = EVENT_BUS?.on?.("login-success", loginUser);
+    const unsubscribeRegisterSuccess = EVENT_BUS?.on?.(
+      "register-success",
+      registerUser
+    );
 
-    return unsubscribe;
+    // Proper cleanup
+    return () => {
+      unsubscribeLoginSuccess?.();
+      unsubscribeRegisterSuccess?.();
+    };
   }, []);
 
   const handleToggle = () => setToggleAvatar((prev) => !prev);

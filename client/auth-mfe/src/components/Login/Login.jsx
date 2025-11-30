@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import styles from "./Login.module.css";
+import { useNavigate } from "react-router-dom";
 
 const EVENT_BUS = window.EVENT_BUS;
 
 const Login = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -16,7 +18,8 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    EVENT_BUS?.emit?.("login-success", { user: { name: "Suhel Tamboli" } });
+    EVENT_BUS?.emit?.("login-success", { user: { name: formData.email } });
+    navigate("/");
   };
 
   return (

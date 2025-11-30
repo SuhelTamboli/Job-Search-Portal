@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import styles from "./Register.module.css";
+import { useNavigate } from "react-router-dom";
+
+const EVENT_BUS = window.EVENT_BUS;
 
 const Register = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     fName: "",
     lName: "",
@@ -12,11 +16,15 @@ const Register = () => {
 
   const handleFormData = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({...prev, [name]: value}))
-  }
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleRegister = (e) => {
     e.preventDefault();
+    EVENT_BUS?.emit?.("register-success", {
+      user: { name: formData.fName + formData.lName },
+    });
+    navigate("/");
   };
 
   return (

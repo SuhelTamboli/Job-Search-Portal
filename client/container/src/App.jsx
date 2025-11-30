@@ -13,11 +13,18 @@ function App() {
 
   const logoutSuccessNotify = () => toast("Logged Out Successfully !");
 
+  const registerSuccessNotify = () => toast("Registration Successful !");
+
   useEffect(() => {
     if (!window.EVENT_BUS) {
       console.warn("EVENT_BUS not ready yet");
       return;
     }
+
+    const unsubscribeRegister = window.EVENT_BUS.on("register-success", () => {
+      console.log("caught register-success event in container App.jsx");
+      registerSuccessNotify();
+    });
 
     const unsubscribeLogin = window.EVENT_BUS.on("login-success", () => {
       console.log("caught login-success event in container App.jsx");
@@ -33,6 +40,7 @@ function App() {
     return () => {
       unsubscribeLogin?.();
       unsubscribeLogout?.();
+      unsubscribeRegister?.();
     };
   }, []);
 
