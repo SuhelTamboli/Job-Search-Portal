@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Login.module.css";
 import { useNavigate } from "react-router-dom";
+import Button from "shared-ui/Button";
 
 const EVENT_BUS = window.EVENT_BUS;
 
@@ -25,7 +26,7 @@ const Login = () => {
   return (
     <div className={styles.authLoginContainer}>
       <h2>LogIn</h2>
-      <form className={styles.authLoginForm} onSubmit={handleLogin}>
+      <form className={styles.authLoginForm}>
         <label className={styles.authLoginLabel} htmlFor="email">
           Email <span className={styles.authLoginInputRequired}>*</span>
         </label>
@@ -48,7 +49,9 @@ const Login = () => {
           value={formData.password}
           onChange={handleFormData}
         />
-        <button className={styles.authLoginButton}>Login</button>
+        <div className={styles.authLoginButtonWrapper}>
+          <Button handleClick={handleLogin} name={"Login"} />
+        </div>
       </form>
     </div>
   );

@@ -8,6 +8,9 @@ export default defineConfig({
     federation({
       name: "header",
       filename: "remoteEntry.js",
+      remotes: {
+        "shared-ui": "http://localhost:5004/assets/remoteEntry.js",
+      },
       exposes: {
         "./App": "./src/App.jsx",
         "./Header": "./src/components/header/Header.jsx",

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Register.module.css";
 import { useNavigate } from "react-router-dom";
+import Button from "shared-ui/Button";
 
 const EVENT_BUS = window.EVENT_BUS;
 
@@ -30,7 +31,7 @@ const Register = () => {
   return (
     <div className={styles.authRegisterContainer}>
       <h2>Register</h2>
-      <form className={styles.authRegisterForm} onSubmit={handleRegister}>
+      <form className={styles.authRegisterForm}>
         <label className={styles.authRegisterLabel} htmlFor="fName">
           First Name <span className={styles.authRegisterInputRequired}>*</span>
         </label>
@@ -101,7 +102,9 @@ const Register = () => {
           <option value={"RECRUITER"}>Recruiter</option>
           <option value={"JOBSEEKER"}>Job Seeker</option>
         </select>
-        <button className={styles.authRegisterButton}>Register</button>
+        <div className={styles.authRegisterButtonWrapper}>
+          <Button handleClick={handleRegister} name={"Register"} />
+        </div>
       </form>
     </div>
   );

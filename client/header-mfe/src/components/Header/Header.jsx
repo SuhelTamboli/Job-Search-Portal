@@ -3,6 +3,7 @@ import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
 import Avatar from "../avatar/Avatar";
 import LogoutPopup from "../logout-popup/LogoutPopup";
+import NavLinkButton from "shared-ui/NavLinkButton";
 
 // Use window directly
 const EVENT_BUS = window.EVENT_BUS;
@@ -74,12 +75,8 @@ const Header = () => {
   const renderSignedOutSection = () => {
     return (
       <div className={styles.headerLinksContainer}>
-        <Link className={styles.headerLoginLink} to={"/login"}>
-          Login
-        </Link>
-        <Link className={styles.headerLoginLink} to={"/register"}>
-          Register
-        </Link>
+        <NavLinkButton name={"Login"} to={"/login"} />
+        <NavLinkButton name={"Register"} to={"/register"} />
       </div>
     );
   };

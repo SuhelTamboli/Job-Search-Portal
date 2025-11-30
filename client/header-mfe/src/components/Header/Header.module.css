@@ -49,23 +49,6 @@
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
 }
 
-.headerLoginLink {
-  padding: 4px 8px;
-  background-color: red;
-  color: white;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 0.4rem;
-  border: 1px solid red;
-  text-decoration: none;
-}
-
-.headerLoginLink:hover {
-  background-color: black;
-  color: red;
-  cursor: pointer;
-}
-
 .headerToastWrapper {
   position: absolute;
 }

@@ -6,18 +6,19 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: "container",
-      remotes: {
-        header: "http://localhost:5001/assets/remoteEntry.js",
-        auth: "http://localhost:5002/assets/remoteEntry.js",
-        "shared-ui": "http://localhost:5004/assets/remoteEntry.js",
+      name: "shared-ui",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./App": "./src/App.jsx",
+        "./Button": "./src/components/buttons/Button.jsx",
+        "./NavLinkButton": "./src/components/buttons/NavLinkButton.jsx"
       },
       shared: ["react", "react-dom", "react-router-dom"],
     }),
   ],
   server: {
-    port: 5000, // 👈 custom port for job portal container app
-    cors: true,
+    port: 5004, // 👈 custom port for shared-ui-mfe-app
+    cors: true, // Important for development!
   },
   build: {
     target: "esnext",
