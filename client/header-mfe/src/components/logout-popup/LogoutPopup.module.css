@@ -1,0 +1,19 @@
+.headerLogoutPopup {
+  width: 10rem;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.headerLogoutPopupOptions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.headerLogoutPopupOptions:hover {
+  background-color: rgb(203, 203, 203);
+}

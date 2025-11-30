@@ -10,8 +10,8 @@ export default defineConfig({
       filename: "remoteEntry.js",
       exposes: {
         "./App": "./src/App.jsx",
-        "./Login": "./src/components/Login/Login.jsx",
-        "./Register": "./src/components/Register/Register.jsx",
+        "./Login": "./src/components/login/Login.jsx",
+        "./Register": "./src/components/register/Register.jsx",
       },
       shared: ["react", "react-dom", "react-router-dom"],
     }),

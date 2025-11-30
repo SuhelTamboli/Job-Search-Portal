@@ -1,7 +1,7 @@
 import { lazy, Suspense, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import styles from "./App.module.css";
-import Home from "./Home/Home";
+import Home from "./components/home/Home";
 import { toast } from "react-toastify";
 
 const Header = lazy(() => import("header/Header"));

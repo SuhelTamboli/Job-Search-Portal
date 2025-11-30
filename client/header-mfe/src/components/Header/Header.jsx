@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
-import Avatar from "../Avatar/Avatar";
-import LogoutPopup from "../LogoutPopup/LogoutPopup";
+import Avatar from "../avatar/Avatar";
+import LogoutPopup from "../logout-popup/LogoutPopup";
 
 // Use window directly
 const EVENT_BUS = window.EVENT_BUS;

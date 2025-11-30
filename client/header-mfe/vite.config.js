@@ -10,7 +10,7 @@ export default defineConfig({
       filename: "remoteEntry.js",
       exposes: {
         "./App": "./src/App.jsx",
-        "./Header": "./src/components/Header/Header.jsx",
+        "./Header": "./src/components/header/Header.jsx",
       },
       shared: ["react", "react-dom", "react-router-dom"],
     }),
