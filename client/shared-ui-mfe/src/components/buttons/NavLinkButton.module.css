@@ -1,16 +1,15 @@
 .sharedNavLinkButton{
   padding: 4px 8px;
-  background-color: red;
+  background-color: slateblue;
   color: white;
   font-size: 1rem;
   font-weight: bold;
   border-radius: 0.4rem;
-  border: 1px solid red;
+  border: 1px solid slateblue;
   text-decoration: none;
 }
 
 .sharedNavLinkButton:hover {
-  background-color: black;
-  color: red;
+  background-color: rgb(85, 66, 205);
   cursor: pointer;
 }

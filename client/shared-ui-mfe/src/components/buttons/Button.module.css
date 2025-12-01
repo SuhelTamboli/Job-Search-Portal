@@ -2,16 +2,14 @@
   width: -webkit-fill-available;
   padding: 8px;
   border-radius: 0.3rem;
-  border: 1px solid red;
-  background-color: red;
+  border: 1px solid slateblue;
+  background-color: slateblue;
   font-weight: bold;
   font-size: 1rem;
   color: white;
 }
 
 .sharedButton:hover {
-  border: 1px solid red;
-  background-color: black;
-  color: red;
+  background-color: rgb(85, 66, 205);
   cursor: pointer;
 }

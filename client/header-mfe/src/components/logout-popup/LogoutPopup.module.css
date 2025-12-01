@@ -3,7 +3,6 @@
   height: auto;
   display: flex;
   flex-direction: column;
-  gap: 10px;
   justify-content: center;
   font-weight: bold;
 }
@@ -12,6 +11,8 @@
   display: flex;
   gap: 0.5rem;
   align-items: center;
+  padding: 8px;
+  border-radius: 8px;
 }
 
 .headerLogoutPopupOptions:hover {

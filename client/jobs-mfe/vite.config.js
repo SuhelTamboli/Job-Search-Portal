@@ -6,20 +6,22 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: "container",
+      name: "jobs",
+      filename: "remoteEntry.js",
       remotes: {
-        header: "http://localhost:5001/assets/remoteEntry.js",
-        auth: "http://localhost:5002/assets/remoteEntry.js",
-        "user-profile": "http://localhost:5003/assets/remoteEntry.js",
         "shared-ui": "http://localhost:5004/assets/remoteEntry.js",
-        "jobs": "http://localhost:5005/assets/remoteEntry.js",
+      },
+      exposes: {
+        "./App": "./src/App.jsx",
+        "./JobsOverviewCard":
+          "./src/components/jobs-overview-card/JobsOverviewCard.jsx",
       },
       shared: ["react", "react-dom", "react-router-dom"],
     }),
   ],
   server: {
-    port: 5000, // 👈 custom port for job portal container app
-    cors: true,
+    port: 5005, // 👈 custom port for user-profile-mfe-app
+    cors: true, // Important for development!
   },
   build: {
     target: "esnext",

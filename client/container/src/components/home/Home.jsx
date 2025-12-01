@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Home.module.css";
+import JobsOverview from "../jobs-overview/JobsOverview";
 
 // Use window directly
 const EVENT_BUS = window.EVENT_BUS;
@@ -10,8 +11,8 @@ const Home = () => {
   return (
     <div className={styles.containerHomeWrapper}>
       <div className={styles.containerHomeTitleWrapper}>
-        <h2>Search, Apply & </h2>
-        <h2>Get Your Dream Job</h2>
+        <h1>Search, Apply & </h1>
+        <h1>Get Your Dream Job</h1>
       </div>
       <div className={styles.containerHomeSearchWrapper}>
         <input
@@ -24,6 +25,7 @@ const Home = () => {
         />
         <button className={styles.containerHomeSearchButton}>Search</button>
       </div>
+      <JobsOverview />
     </div>
   );
 };

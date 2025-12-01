@@ -2,16 +2,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 1rem;
+  gap: 1rem;
 }
 
 .containerHomeTitleWrapper {
-  color: red;
+  color: slateblue;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  h2 {
+  h1 {
     margin: 0;
   }
 }
@@ -32,15 +34,14 @@
 
 .containerHomeSearchButton {
   color: white;
-  background-color: red;
+  background-color: slateblue;
   font-weight: bold;
-  border: 1px solid red;
+  border: 1px solid slateblue;
   padding: 4px 6px;
   border-radius: 1rem;
 }
 
 .containerHomeSearchButton:hover {
-  color: red;
-  background-color: black;
+  background-color: rgb(85, 66, 205);
   cursor: pointer;
 }
