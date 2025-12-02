@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./Login.module.css";
 import { useNavigate } from "react-router-dom";
 import Button from "shared-ui/Button";
+import { Link } from "react-router-dom";
 
 const EVENT_BUS = window.EVENT_BUS;
 
@@ -53,6 +54,9 @@ const Login = () => {
           <Button handleClick={handleLogin} name={"Login"} />
         </div>
       </form>
+      <p>
+        Don't have an account? <Link to="/register">Register</Link>
+      </p>
     </div>
   );
 };
