@@ -1,15 +1,62 @@
 .sharedButton {
-  width: -webkit-fill-available;
-  padding: 8px;
-  border-radius: 0.3rem;
-  border: 1px solid slateblue;
+  width: 100%; /* Full width like -webkit-fill-available */
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: 2px solid slateblue;
   background-color: slateblue;
   font-weight: bold;
   font-size: 1rem;
   color: white;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 48px; /* Better touch target */
 }
 
-.sharedButton:hover {
-  background-color: rgb(85, 66, 205);
-  cursor: pointer;
+.sharedButton:hover:not(:disabled) {
+  background-color: #5a4fcf;
+  border-color: #5a4fcf;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(90, 79, 207, 0.3);
+}
+
+.sharedButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Disabled State */
+.sharedButton:disabled,
+.disabled {
+  background-color: #94a3b8;
+  border-color: #94a3b8;
+  color: #cbd5e1;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Loading State */
+.loading {
+  background-color: #64748b;
+  border-color: #64748b;
+  cursor: wait;
+}
+
+/* Spinner */
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }

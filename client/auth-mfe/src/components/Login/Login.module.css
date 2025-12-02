@@ -1,45 +1,120 @@
 .authLoginContainer {
-  /* Smooth modern shadow */
   box-shadow: 8px 8px 12px 12px rgba(0, 0, 0, 0.15);
   width: 30rem;
-  height: auto;
+  min-height: 28rem;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  border-radius: 1rem;
+  background: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem;
 }
 
 .authLoginForm {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 0.4rem;
 }
 
 .authLoginLabel {
-  font-weight: bold;
-}
-
-.authLoginInput {
-  height: 1.5rem;
-  width: 15rem;
-  border-radius: 0.3rem;
-  border: 1px solid grey;
-  padding-left: 0.5rem;
-}
-
-.authLoginRoleInput {
-  height: 1.8rem;
-  width: 15.7rem;
-  border-radius: 0.3rem;
-  border: 1px solid grey;
-  padding-left: 0.5rem;
+  font-weight: 600;
+  margin-top: 0.8rem;
+  font-size: 0.95rem;
 }
 
 .authLoginInputRequired {
-  color: red;
+  color: #ef4444;
+}
+
+/* Unified Input Base Style */
+.authLoginInput,
+.authLoginRoleInput {
+  height: 2.8rem;
+  width: 100%;
+  padding: 0 0.9rem;
+  border-radius: 0.5rem;
+  border: 1.5px solid #94a3b8;
+  font-size: 1rem;
+  background-color: white;
+  box-sizing: border-box;
+  transition: all 0.2s;
+}
+
+.authLoginInput:focus,
+.authLoginRoleInput:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* Password Wrapper - Ensures input takes full width */
+.passwordWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.passwordWrapper input {
+  width: 100%;
+  padding-right: 4.5rem; /* Make room for toggle button */
+}
+
+/* Toggle Button - Positioned inside input */
+.togglePassword {
+  position: absolute;
+  right: 0.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #3b82f6;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.4rem;
+  transition: background 0.2s;
+  z-index: 1;
+}
+
+.togglePassword:hover {
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+/* Error Styles */
+.inputError {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15) !important;
+}
+
+.errorText {
+  color: #ef4444;
+  font-size: 0.85rem;
+  margin-top: 0.4rem;
+  min-height: 1.2rem;
 }
 
 .authLoginButtonWrapper {
   margin-top: 2rem;
+  display: flex;
+  justify-content: center;
 }
 
+/* Link */
+.registerLink {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  color: #64748b;
+  text-align: center;
+}
+
+.link {
+  color: #3b82f6;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
