@@ -11,6 +11,7 @@ const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
+    role: ""
   });
 
   const handleFormData = (e) => {
@@ -50,6 +51,23 @@ const Login = () => {
           value={formData.password}
           onChange={handleFormData}
         />
+        <label className={styles.authLoginLabel} htmlFor="password">
+          Role
+          <span className={styles.authLoginInputRequired}>*</span>
+        </label>
+        <select
+          name="role"
+          required
+          value={formData.role}
+          onChange={handleFormData}
+          className={styles.authLoginRoleInput}
+        >
+          <option value={""} disabled selected hidden>
+            Select Role
+          </option>
+          <option value={"RECRUITER"}>Recruiter</option>
+          <option value={"JOBSEEKER"}>Job Seeker</option>
+        </select>
         <div className={styles.authLoginButtonWrapper}>
           <Button handleClick={handleLogin} name={"Login"} />
         </div>
