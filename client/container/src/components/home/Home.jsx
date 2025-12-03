@@ -8,6 +8,10 @@ const EVENT_BUS = window.EVENT_BUS;
 const Home = () => {
   const [searchText, setSearchText] = useState("");
 
+  const handleSearch = () => {
+    EVENT_BUS?.emit?.("search-jobs", { searchText });
+  };
+
   return (
     <div className={styles.containerHomeWrapper}>
       <div className={styles.containerHomeTitleWrapper}>
@@ -20,10 +24,16 @@ const Home = () => {
           type="text"
           id="search"
           name="search"
+          placeholder="Type Job Role e.g. Frontend, Backend, Full Stack etc."
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         />
-        <button className={styles.containerHomeSearchButton}>Search</button>
+        <button
+          className={styles.containerHomeSearchButton}
+          onClick={handleSearch}
+        >
+          Search
+        </button>
       </div>
       <JobsOverview />
     </div>

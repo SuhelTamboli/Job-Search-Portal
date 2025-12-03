@@ -1,7 +1,6 @@
 .containerHomeWrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding: 1rem;
   gap: 1rem;
 }
@@ -21,8 +20,7 @@
 .containerHomeSearchWrapper {
   display: flex;
   gap: 0.5rem;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .containerSearchInput {

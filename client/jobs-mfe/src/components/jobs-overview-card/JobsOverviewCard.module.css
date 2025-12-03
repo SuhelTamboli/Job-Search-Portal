@@ -7,6 +7,8 @@
   align-items: start;
   padding: 0.5rem;
   gap: 0.5rem;
+  overflow: hidden;           /* ← very important */
+  word-wrap: break-word;
 
   /* Animation base */
   transition: transform 0.1s ease, box-shadow 0.1s ease;
@@ -28,6 +30,8 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: normal;
+  width: 100%;
 }
 
 .jobsOverviewCardPositionWrapper {
