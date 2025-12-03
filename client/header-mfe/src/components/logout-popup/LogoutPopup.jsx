@@ -7,10 +7,12 @@ const LogoutPopup = ({ logoutUser, viewProfile }) => {
   return (
     <div className={styles.headerLogoutPopup}>
       <div className={styles.headerLogoutPopupOptions} onClick={viewProfile}>
-        <span>View Profile</span> <MdOutlinePerson size={20} />
+        <MdOutlinePerson size={20} />
+        <span>View Profile</span>
       </div>
       <div className={styles.headerLogoutPopupOptions} onClick={logoutUser}>
-        <span>Logout</span> <IoLogOutOutline size={20} />
+        <IoLogOutOutline size={20} />
+        <span>Logout</span>
       </div>
     </div>
   );
