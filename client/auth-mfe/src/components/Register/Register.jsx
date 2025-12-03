@@ -59,9 +59,14 @@ const Register = () => {
       // Simulate API delay
       await new Promise((resolve) => setTimeout(resolve, 800));
 
-      EVENT_BUS?.emit?.("register-success", {
-        user: { name: `${data.fName} ${data.lName}` },
-      });
+       EVENT_BUS?.emit?.("auth-changed", {
+         user: {
+           email: data.email,
+           role: data.role,
+           isLoggedIn: true,
+           isNewRegistration: true,
+         },
+       });
 
       navigate("/");
     } catch (err) {

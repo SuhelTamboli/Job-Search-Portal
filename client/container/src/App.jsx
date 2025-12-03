@@ -16,32 +16,37 @@ function App() {
 
   const registerSuccessNotify = () => toast("Registration Successful !");
 
+  const handleAuthChanged = (user) => {
+    console.log("in auth changed function ", user);
+    if (user === null) {
+      console.log("User logged out of application");
+      logoutSuccessNotify();
+    } else if (user?.isNewRegistration) {
+      console.log("New user registered in application");
+      registerSuccessNotify();
+    } else if (user?.isLoggedIn) {
+      console.log("Existing user logged in application");
+      loginSuccessNotify();
+    }
+  };
+
   useEffect(() => {
     if (!window.EVENT_BUS) {
       console.warn("EVENT_BUS not ready yet");
       return;
     }
 
-    const unsubscribeRegister = window.EVENT_BUS.on("register-success", () => {
-      console.log("caught register-success event in container App.jsx");
-      registerSuccessNotify();
-    });
-
-    const unsubscribeLogin = window.EVENT_BUS.on("login-success", () => {
-      console.log("caught login-success event in container App.jsx");
-      loginSuccessNotify();
-    });
-
-    const unsubscribeLogout = window.EVENT_BUS.on("logout-success", () => {
-      console.log("caught logout-success event in container App.jsx");
-      logoutSuccessNotify();
-    });
+    const unsubscribeAuthChanged = window.EVENT_BUS.on(
+      "auth-changed",
+      ({ user }) => {
+        console.log("caught auth-changed event in container App.jsx");
+        handleAuthChanged(user);
+      }
+    );
 
     // Proper cleanup
     return () => {
-      unsubscribeLogin?.();
-      unsubscribeLogout?.();
-      unsubscribeRegister?.();
+      unsubscribeAuthChanged?.();
     };
   }, []);
 

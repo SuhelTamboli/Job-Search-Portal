@@ -21,20 +21,20 @@ const Header = () => {
     handleToggle();
   };
 
-  const loginUser = (event) => {
-    console.log("caught login-success event in header ", event);
-    setIsSignedIn(true);
-  };
 
-  const registerUser = (event) => {
-    console.log("caught register-success event in header ", event);
-    setIsSignedIn(true);
+  const handleAuthChanged = (user) => {
+    if (user?.isLoggedIn) {
+      console.log("User logged in application");
+      setIsSignedIn(true);
+    }
   };
 
   const logoutUser = () => {
     setIsSignedIn(false);
     handleToggle();
-    EVENT_BUS?.emit?.("logout-success", { user: null });
+    EVENT_BUS?.emit?.("auth-changed", {
+      user: null
+    });
     navigate("/");
   };
 
@@ -43,16 +43,18 @@ const Header = () => {
       console.warn("EVENT_BUS not ready yet");
       // Optional: retry logic
     }
-    const unsubscribeLoginSuccess = EVENT_BUS?.on?.("login-success", loginUser);
-    const unsubscribeRegisterSuccess = EVENT_BUS?.on?.(
-      "register-success",
-      registerUser
+
+    const unsubscribeAuthChanged = window.EVENT_BUS.on(
+      "auth-changed",
+      ({ user }) => {
+        console.log("caught auth-changed event in container App.jsx");
+        handleAuthChanged(user);
+      }
     );
 
     // Proper cleanup
     return () => {
-      unsubscribeLoginSuccess?.();
-      unsubscribeRegisterSuccess?.();
+      unsubscribeAuthChanged?.();
     };
   }, []);
   const renderSignedInSection = () => {

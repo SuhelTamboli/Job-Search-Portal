@@ -35,8 +35,13 @@ const Login = () => {
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 800));
 
-      EVENT_BUS?.emit?.("login-success", {
-        user: { email: data.email, role: data.role },
+      EVENT_BUS?.emit?.("auth-changed", {
+        user: {
+          email: data.email,
+          role: data.role,
+          isLoggedIn: true,
+          isNewRegistration: false,
+        },
       });
 
       navigate("/");
